@@ -82,6 +82,7 @@ function handleLoginBtn(event) {
       (emailValue !== user.id && pwValue !== user.pw) ||
       (emailValue !== user.id && pwValue === user.pw)
     ) {
+      event.preventDefault();
       alert("등록되지 않은 아이디입니다.");
     }
   } else {
