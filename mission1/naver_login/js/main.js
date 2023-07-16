@@ -18,19 +18,19 @@ const user = {
 };
 
 // 유저 이메일 입력창의 value값 가져오기(ok)
-const userEmailValue = function () {
+const userEmailValue = () => {
   const value = userEmail.value;
   return value;
 };
 
 // 유저 비밀번호 입력창의 value값 받아오기 (ok)
-const userPwValue = function () {
+const userPwValue = () => {
   const value = userPw.value;
   return value;
 };
 
 // 유저 이메일값 체크 (ok)
-let userEmailCheck = function () {
+let userEmailCheck = () => {
   const email = userEmailValue();
   let emailAccuracy = emailReg(email);
 
@@ -45,7 +45,7 @@ let userEmailCheck = function () {
 };
 
 // 유저 패스워드값 체크 (ok)
-let userPwCheck = function () {
+let userPwCheck = () => {
   const pw = userPwValue();
   let pwAccuracy = pwReg(pw);
 
