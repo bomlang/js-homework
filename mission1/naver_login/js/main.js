@@ -10,12 +10,11 @@ const userEmail = document.querySelector(".user-email-input");
 const userPw = document.querySelector(".user-password-input");
 const loginBtn = document.querySelector(".btn-login");
 const loginform = document.querySelector(".login-form");
-const errorMessage = document.querySelectorAll(".error-message");
 
 // 유저 계정
 const user = {
-  id: "bomlang@naver.com",
-  pw: "aldks551!",
+  id: "asd@naver.com",
+  pw: "spdlqj123!@",
 };
 
 // 유저 이메일 입력창의 value값 가져오기(ok)
@@ -59,12 +58,6 @@ let userPwCheck = function () {
   return pwAccuracy;
 };
 
-function loginError() {
-  if (userEmailValue() === user.id) {
-    console.log("good");
-  }
-}
-
 // 로그인 버튼을 눌렀을 때 유저 아이디값 추출 (ok)
 // 💀 값은 받아오지지만, 정상적인 이메일과 비밀번호를 입력하였을 때 오류발생 AJAX 405 Error가 발생한다.
 function handleLoginBtn(event) {
@@ -78,16 +71,21 @@ function handleLoginBtn(event) {
   // console.log(emailAccuracyCheck);
   // console.log(pwAccuracyCheck);
 
+  // 아이디와 비밀번호 초기 입력방식에 따라서 조건문을 설정하였습니다.
   if (emailAccuracyCheck === true && pwAccuracyCheck === true) {
     if (emailValue === user.id && pwValue === user.pw) {
       return (loginform.action = "welcome.html");
-    } else {
+    } else if (emailValue === user.id && pwValue !== user.pw) {
       event.preventDefault();
-      errorMessage[1].innerHTML = "아이디 또는 비밀번호가 틀립니다.";
-      userPw.classList.add("is--invalid");
+      alert("비밀번호를 확인해주세요.");
+    } else if (
+      (emailValue !== user.id && pwValue !== user.pw) ||
+      (emailValue !== user.id && pwValue === user.pw)
+    ) {
+      alert("등록되지 않은 아이디입니다.");
     }
   } else {
-    localStorage.getItem();
+    event.preventDefault();
   }
 }
 
